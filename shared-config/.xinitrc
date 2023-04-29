@@ -1,6 +1,7 @@
 #!/bin/bash
 
-setxkbmap es
+setxkbmap de
+xrandr --output HDMI-1 --primary --left-of HDMI-0
 xsetroot -cursor_name left_ptr
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then

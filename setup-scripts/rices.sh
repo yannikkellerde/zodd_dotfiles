@@ -20,7 +20,7 @@ function setup_config {
     cp $HOME/.bashrc $HOME/.bashrc-backup
     cp $HOME/.zshrc $HOME/.zshrc-backup
 
-    nohup notify-send -i $SETUP_ROOT/dotfiles/setup-scripts/resources/white-brush.png "[INFO]: copying \"$config_name\" config files..." &
+    nohup notify-send -i $SETUP_ROOT/zodd_dotfiles/setup-scripts/resources/white-brush.png "[INFO]: copying \"$config_name\" config files..." &
 
     #
     # copying theme dotfiles
@@ -34,13 +34,12 @@ function setup_config {
     dconf load /org/gnome/gedit/ < $HOME/.config/gedit-dump.dconf
     rm $HOME/.mozilla/firefox/mxrcz6ht.default-release-1594850756736/chrome/userChrome.css
     rsync -ravu ./shared-config/.config/polybar/scripts/rofi-poweroff.sh ./shared-config/.config/polybar/scripts/theme-swap.sh ~/.config/polybar/scripts
-    rsync -rav --exclude "*git*" --exclude ".icons" --exclude ".themes" --exclude ".wallpapers" $SETUP_ROOT/dotfiles/rices/$config_name/. $HOME
+    rsync -rav --exclude "*git*" --exclude ".icons" --exclude ".themes" --exclude ".wallpapers" $SETUP_ROOT/zodd_dotfiles/rices/$config_name/. $HOME
     rsync -ravu ./rices/$config_name/.wallpapers ./rices/$config_name/.icons ./rices/$config_name/.themes $HOME
 
     sed -i "s/$replace_user/$USER/g" $HOME/.config/nitrogen/*.cfg
 
     # nvim plugins installation
-    nohup nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall &
 
     rm $HOME/README.md &> /dev/null
 
@@ -73,7 +72,7 @@ case "$arg" in
     "doombox" ) setup_config "Doombox" ;; 
     "forest" ) setup_config "Forest" ;; 
     "dracula" ) setup_config "Dracula" ;; 
-    *) echo "[ERROR]: no config with name \"$arg\" found" && notify-send -i $SETUP_ROOT/dotfiles/setup-scripts/resources/white-brush.png "[ERROR]: Selected theme does not exist" & ;;
+    *) echo "[ERROR]: no config with name \"$arg\" found" && notify-send -i $SETUP_ROOT/zodd_dotfiles/setup-scripts/resources/white-brush.png "[ERROR]: Selected theme does not exist" & ;;
 esac
 
 exit 1
