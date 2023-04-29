@@ -27,7 +27,7 @@
 	url = https://github.com/zodd18/Ayu.git
 [submodule "rices/Nord"]
 	path = rices/Nord
-	url = https://github.com/zodd18/Nord.git
+	url = git@github.com:yannikkellerde/Nord.git
 [submodule "rices/Gruvbox"]
 	path = rices/Gruvbox
 	url = https://github.com/zodd18/Gruvbox.git
